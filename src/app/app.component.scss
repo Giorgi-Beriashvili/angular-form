@@ -71,6 +71,8 @@ div {
 }
 
 .error-msg {
+    display: flex;
+    justify-content: center; 
     color: red;
     font-size: 12px; 
     text-indent: 1px; 

@@ -68,14 +68,11 @@
                 >
                     Email is required!
                 </div>
-                <div *ngIf="phone?.errors?.['minlength']" class="error-msg">
-                    Min 9 character!
-                </div>
             </div>
 
             <div class="required">
                 <input
-                    type="number"
+                    type="text"
                     name="phone"
                     id="phone"
                     placeholder="Phone"
@@ -88,12 +85,12 @@
                 >
                     Phone is required!
                 </div>
-                <!-- <div *ngIf="phone?.errors?.['minlength']" class="error-msg">
-                    Enter min 9 number!
+                <div *ngIf="phone?.errors?.['minlength']" class="error-msg">
+                    Enter min 9 character!
                 </div>
-                <div *ngIf="phone?.errors?.['maxlength']" class="error-msg">
-                    Enter max 13 number!
-                </div> -->
+                <div *ngIf="phone?.errors?.['pattern']" class="error-msg">
+                    Enter only numbers!
+                </div>
             </div>
         </div>
     </div>
@@ -162,7 +159,7 @@
 
                 <div
                     *ngIf="!work?.valid && (work?.touched || work?.dirty)"
-                    lass="error-msg"
+                    class="error-msg"
                 >
                     Experience is required!
                 </div>
@@ -170,7 +167,7 @@
 
             <div class="required">
                 <input
-                    type="number"
+                    type="text"
                     name="from"
                     id="from"
                     placeholder="From"
@@ -186,14 +183,14 @@
                 >
                     Required!
                 </div>
-                <!-- <div *ngIf="workFrom?.errors?.['minlength']" class="error-msg">
-                    number
-                </div> -->
+                <div *ngIf="workFrom?.errors?.['minlength']" class="error-msg">
+                    Min 4 number!
+                </div>
             </div>
 
             <div class="required">
                 <input
-                    type="number"
+                    type="text"
                     name="number"
                     id="number"
                     placeholder="To"
@@ -205,6 +202,9 @@
                     class="error-msg"
                 >
                     Required!
+                </div>
+                <div *ngIf="workTo?.errors?.['maxlength']" class="error-msg">
+                    Max 4 number!
                 </div>
             </div>
         </div>
@@ -236,7 +236,7 @@
 
             <div class="required">
                 <input
-                    type="number"
+                    type="text"
                     name="from"
                     id="from"
                     placeholder="From"
@@ -252,11 +252,17 @@
                 >
                     Required!
                 </div>
+                <div
+                    *ngIf="institutionFrom?.errors?.['minlength']"
+                    class="error-msg"
+                >
+                    Min 4 number!
+                </div>
             </div>
 
             <div class="required">
                 <input
-                    type="number"
+                    type="text"
                     name="number"
                     id="number"
                     placeholder="To"
@@ -271,6 +277,12 @@
                     class="error-msg"
                 >
                     Required!
+                </div>
+                <div
+                    *ngIf="institutionTo?.errors?.['maxlength']"
+                    class="error-msg"
+                >
+                    Max 4 number!
                 </div>
             </div>
         </div>

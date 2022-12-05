@@ -21,7 +21,7 @@ export class AppComponent {
         phone: new FormControl('', [
             Validators.required,
             Validators.minLength(9),
-            Validators.maxLength(13),
+            Validators.pattern('[0-9]+'),
         ]),
         github: new FormControl('', [
             Validators.required,
@@ -42,14 +42,30 @@ export class AppComponent {
                 Validators.minLength(4),
                 Validators.maxLength(4),
             ]),
-            from: new FormControl('', [Validators.required]),
-            to: new FormControl('', [Validators.required]),
+            from: new FormControl('', [
+                Validators.required,
+                Validators.minLength(4),
+                Validators.maxLength(4),
+            ]),
+            to: new FormControl('', [
+                Validators.required,
+                Validators.minLength(4),
+                Validators.maxLength(4),
+            ]),
         }),
 
         education: new FormGroup({
             institution: new FormControl('', [Validators.required]),
-            from: new FormControl('', [Validators.required]),
-            to: new FormControl('', [Validators.required]),
+            from: new FormControl('', [
+                Validators.required,
+                Validators.minLength(4),
+                Validators.maxLength(4),
+            ]),
+            to: new FormControl('', [
+                Validators.required,
+                Validators.minLength(4),
+                Validators.maxLength(4),
+            ]),
         }),
     });
 
