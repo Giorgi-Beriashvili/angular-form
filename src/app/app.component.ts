@@ -9,9 +9,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class AppComponent {
     userForm: FormGroup = new FormGroup({
         firstname: new FormControl('', [
-            Validators.required,
-            Validators.maxLength(10),
-            Validators.minLength(2),
+            Validators.required, 
+            Validators.pattern('^[a-zA-Z]+$'),
         ]),
         lastname: new FormControl('', [
             Validators.required,
@@ -20,8 +19,7 @@ export class AppComponent {
         email: new FormControl('', [Validators.email, Validators.required]),
         phone: new FormControl('', [
             Validators.required,
-            Validators.minLength(9),
-            Validators.pattern('[0-9]+'),
+            Validators.min(123456789),
         ]),
         github: new FormControl('', [
             Validators.required,
@@ -37,20 +35,16 @@ export class AppComponent {
         ]),
 
         experience: new FormGroup({
-            work: new FormControl('', [
-                Validators.required,
-                Validators.minLength(4),
-                Validators.maxLength(4),
-            ]),
+            work: new FormControl('', [Validators.required]),
             from: new FormControl('', [
                 Validators.required,
-                Validators.minLength(4),
-                Validators.maxLength(4),
+                Validators.min(2000),
+                Validators.max(2022),
             ]),
             to: new FormControl('', [
                 Validators.required,
-                Validators.minLength(4),
-                Validators.maxLength(4),
+                Validators.min(2000),
+                Validators.max(2022),
             ]),
         }),
 
@@ -58,13 +52,13 @@ export class AppComponent {
             institution: new FormControl('', [Validators.required]),
             from: new FormControl('', [
                 Validators.required,
-                Validators.minLength(4),
-                Validators.maxLength(4),
+                Validators.min(2000),
+                Validators.max(2022),
             ]),
             to: new FormControl('', [
                 Validators.required,
-                Validators.minLength(4),
-                Validators.maxLength(4),
+                Validators.min(2000),
+                Validators.max(2022),
             ]),
         }),
     });

@@ -18,11 +18,8 @@
             >
                 First Name is required!
             </div>
-            <div *ngIf="firstname?.errors?.['maxlength']" class="error-msg">
-                Max 10 characters!
-            </div>
-            <div *ngIf="firstname?.errors?.['minlength']" class="error-msg">
-                Min 2 characters!
+            <div *ngIf="firstname?.errors?.['pattern']" class="error-msg">
+                Enter only letters!
             </div>
         </div>
 
@@ -72,7 +69,7 @@
 
             <div class="required">
                 <input
-                    type="text"
+                    type="number"
                     name="phone"
                     id="phone"
                     placeholder="Phone"
@@ -85,11 +82,8 @@
                 >
                     Phone is required!
                 </div>
-                <div *ngIf="phone?.errors?.['minlength']" class="error-msg">
+                <div *ngIf="phone?.errors?.['min']" class="error-msg">
                     Enter min 9 character!
-                </div>
-                <div *ngIf="phone?.errors?.['pattern']" class="error-msg">
-                    Enter only numbers!
                 </div>
             </div>
         </div>
@@ -167,7 +161,7 @@
 
             <div class="required">
                 <input
-                    type="text"
+                    type="number"
                     name="from"
                     id="from"
                     placeholder="From"
@@ -183,15 +177,18 @@
                 >
                     Required!
                 </div>
-                <div *ngIf="workFrom?.errors?.['minlength']" class="error-msg">
-                    Min 4 number!
+                <div *ngIf="workFrom?.errors?.['min']" class="error-msg">
+                    From 2000!
+                </div>
+                <div *ngIf="workFrom?.errors?.['max']" class="error-msg">
+                    Max 2022 year!
                 </div>
             </div>
 
             <div class="required">
                 <input
-                    type="text"
-                    name="number"
+                    type="number"
+                    name="to"
                     id="number"
                     placeholder="To"
                     formControlName="to"
@@ -203,8 +200,11 @@
                 >
                     Required!
                 </div>
-                <div *ngIf="workTo?.errors?.['maxlength']" class="error-msg">
-                    Max 4 number!
+                <div *ngIf="workTo?.errors?.['min']" class="error-msg">
+                    From 2000!
+                </div>
+                <div *ngIf="workTo?.errors?.['max']" class="error-msg">
+                    Max 2022 year!
                 </div>
             </div>
         </div>
@@ -236,7 +236,7 @@
 
             <div class="required">
                 <input
-                    type="text"
+                    type="number"
                     name="from"
                     id="from"
                     placeholder="From"
@@ -252,18 +252,18 @@
                 >
                     Required!
                 </div>
-                <div
-                    *ngIf="institutionFrom?.errors?.['minlength']"
-                    class="error-msg"
-                >
-                    Min 4 number!
+                <div *ngIf="institutionFrom?.errors?.['min']" class="error-msg">
+                    From 2000!
+                </div>
+                <div *ngIf="institutionFrom?.errors?.['max']" class="error-msg">
+                    Max 2022 year!
                 </div>
             </div>
 
             <div class="required">
                 <input
-                    type="text"
-                    name="number"
+                    type="number"
+                    name="to"
                     id="number"
                     placeholder="To"
                     formControlName="to"
@@ -278,15 +278,17 @@
                 >
                     Required!
                 </div>
-                <div
-                    *ngIf="institutionTo?.errors?.['maxlength']"
-                    class="error-msg"
-                >
-                    Max 4 number!
+                <div *ngIf="institutionTo?.errors?.['min']" class="error-msg">
+                    From 2000!
+                </div>
+                <div *ngIf="institutionTo?.errors?.['max']" class="error-msg">
+                    Max 2022 year!
                 </div>
             </div>
         </div>
     </div>
 
-    <button class="btn" type="submit">Submit</button>
+    <button class="btn" type="submit" [disabled]="!userForm.valid">
+        Submit
+    </button>
 </form>
